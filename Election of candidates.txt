@@ -1,0 +1,148 @@
+#include<stdio.h>
+#define candidate1 "Eren Jeager"
+#define candidate5 "Tanjiro "
+#define candidate2 "Mikasa Akkerman"
+#define candidate6 "Nezuko"
+#define candidate3 "Levi Akkerman"
+#define candidate7 "Inosuke"
+#define candidate4 "Historia"
+#define candidate8 "Zenitsu"
+int Count1=0, Count2=0, Count3=0, Count4=0, spoiledtvotes=0;
+int Count5=0, Count6=0, Count7=0, Count8=0;
+void votesCount()
+{
+int pass;
+printf("\nenter the password\n");
+scanf("%d",&pass);
+if(pass==25025) 
+{
+printf("\n\n----------Voting Statics-----------");
+printf("\n\n -------president-------");
+printf("\n %s - %d ", candidate1, Count1);
+printf("\n %s - %d ", candidate2, Count2);
+printf("\n %s - %d ", candidate3, Count3);
+printf("\n %s - %d \n\n", candidate4, Count4);
+3
+printf("\n\n -------secretary-------");
+printf("\n %s - %d ", candidate5, Count5);
+printf("\n %s - %d ", candidate6, Count6);
+printf("\n %s - %d ", candidate7, Count7);
+printf("\n %s - %d ", candidate8, Count8);
+printf("\n %s - %d ", "Spoiled Votes", spoiledtvotes); 
+}
+else
+{
+printf("\nAccess denied\n");
+}
+}
+void presidential_canditate()
+{
+int choice;
+printf("\n\n--------Please choose your Candidate--------
+\n\n");
+printf("\n 1. %s", candidate1);
+printf("\n 2. %s", candidate2);
+printf("\n 3. %s", candidate3);
+printf("\n 4. %s", candidate4);
+printf("\n 5. %s", "None of These");
+printf("\n\nEnter your choice (1-4)\n");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1: Count1++; break;
+case 2: Count2++; break;
+case 3: Count3++; break;
+case 4:Count4++; break;
+case 5: spoiledtvotes++; break;
+default: printf("\n Error: Wrong Choice !! Please 
+retry");
+}
+}
+void secretarial_canditate()
+{
+int choice;
+printf("\n\n--------Please choose your Candidate--------
+\n\n");
+printf("\n 1. %s", candidate5);
+printf("\n 2. %s", candidate6);
+printf("\n 3. %s", candidate7);
+printf("\n 4. %s", candidate8);
+printf("\n 5. %s", "None of These");
+printf("\n\nEnter your choice (1-4)\n");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1: Count5++; break;
+case 2: Count6++; break;
+case 3: Count7++; break;
+case 4:Count8++; break;
+case 5: spoiledtvotes++; break;
+default: printf("\n Error: Wrong Choice !! Please 
+retry");
+}
+}
+void winner()
+{
+int pass;
+printf("\nenter the password\n");
+scanf("%d",&pass);
+if(pass==25025) 
+{
+printf("--------President---------");
+if(Count1>Count2&&Count1>Count3&&Count1>Count4)
+printf("\nWinner is %s\n",candidate1);
+else if(Count2>Count1&&Count2>Count3&&Count2>Count4)
+printf("\nWinner is %s\n",candidate2);
+else if(Count3>Count2&&Count3>Count1&&Count3>Count4)
+printf("\nWinner is %s\n",candidate3);
+else if(Count4>Count2&&Count4>Count1&&Count4>Count3)
+printf("\nwinner is %s\n",candidate4);
+else
+printf("\nsome candidates have same number of votes cannot decide 
+winner\n");
+printf("\n\n--------secretary---------");
+if(Count5>Count6&&Count5>Count7&&Count5>Count8)
+printf("\nWinner is %s\n",candidate5);
+else if(Count6>Count7&&Count6>Count8&&Count6>Count5)
+printf("\nWinner is %s\n",candidate6);
+else if(Count7>Count5&&Count7>Count6&&Count7>Count8)
+printf("\nWinner is %s\n",candidate7);
+else if(Count8>Count5&&Count8>Count6&&Count8>Count7)
+printf("\nwinner is %s\n",candidate8);
+else
+printf("\nsome candidates have same number of votes cannot decide 
+winner\n");
+}
+else
+printf("\nAccess denied");
+}
+void main()
+{
+int i;
+int choice;
+while(1)
+{
+printf("\n\n ------------ Welcome to Election/Voting --------------");
+printf("\n\n 1. Cast the Vote for president");
+printf("\n\n 2. cast vote for secretary");
+printf("\n 3. Find Vote Count");
+printf("\n 4. Find the winner");
+printf("\n 5. Exit");
+printf("\n\n Please enter your choice : ");
+scanf("%d", &choice);
+switch(choice)
+{
+case 1: presidential_canditate();
+break;
+case 2:secretarial_canditate();
+break;
+case 3: votesCount();
+break;
+break;
+case 4:winner();
+break;
+case 5:return;
+default: printf("\n Error: Invalid Choice");
+}
+}
+}
